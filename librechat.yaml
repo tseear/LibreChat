@@ -1,0 +1,282 @@
+# For more information, see the Configuration Guide:
+# https://www.librechat.ai/docs/configuration/librechat_yaml
+
+# Configuration version (required)
+version: 1.1.5
+
+# Cache settings: Set to true to enable caching
+cache: true
+
+# Custom interface configuration
+interface:
+  # Privacy policy settings
+  privacyPolicy:
+    externalUrl: 'https://librechat.ai/privacy-policy'
+    openNewTab: true
+
+  # Terms of service
+  termsOfService:
+    externalUrl: 'https://librechat.ai/tos'
+    openNewTab: true
+
+# Example Registration Object Structure (optional)
+registration:
+  socialLogins: ['github', 'google', 'discord', 'openid', 'facebook']
+  # allowedDomains:
+  # - "gmail.com"
+
+# speech:
+#   tts:
+#     openai:
+#       url: ''
+#       apiKey: '${TTS_API_KEY}'
+#       model: ''
+#       voices: ['']
+
+#  
+#   stt:
+#     openai:
+#       url: ''
+#       apiKey: '${STT_API_KEY}'
+#       model: ''
+
+# rateLimits:
+#   fileUploads:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # Rate limit window for file uploads per IP
+#     userMax: 50
+#     userWindowInMinutes: 60  # Rate limit window for file uploads per user
+#   conversationsImport:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # Rate limit window for conversation imports per IP
+#     userMax: 50
+#     userWindowInMinutes: 60  # Rate limit window for conversation imports per user
+
+# Definition of custom endpoints
+endpoints:
+  # assistants:
+  #   disableBuilder: false # Disable Assistants Builder Interface by setting to `true`
+  #   pollIntervalMs: 3000  # Polling interval for checking assistant updates
+  #   timeoutMs: 180000  # Timeout for assistant operations
+  #   # Should only be one or the other, either `supportedIds` or `excludedIds`
+  #   supportedIds: ["asst_supportedAssistantId1", "asst_supportedAssistantId2"]
+  #   # excludedIds: ["asst_excludedAssistantId"]
+  #   Only show assistants that the user created or that were created externally (e.g. in Assistants playground).
+  #   # privateAssistants: false # Does not work with `supportedIds` or `excludedIds`
+  #   # (optional) Models that support retrieval, will default to latest known OpenAI models that support the feature
+  #   retrievalModels: ["gpt-4-turbo-preview"]
+  #   # (optional) Assistant Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
+  #   capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision"]
+  custom:
+        - name: "together.ai"
+      apiKey: "${TOGETHERAI_API_KEY}"
+      baseURL: "https://api.together.xyz"
+      models:
+        default: [
+          "Austism/chronos-hermes-13b",
+          "NousResearch/Hermes-2-Theta-Llama-3-70B",
+          "NousResearch/Nous-Capybara-7B-V1p9",
+          "NousResearch/Nous-Hermes-2-Mistral-7B-DPO",
+          "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
+          "NousResearch/Nous-Hermes-2-Mixtral-8x7B-SFT",
+          "NousResearch/Nous-Hermes-2-Yi-34B",
+          "NousResearch/Nous-Hermes-Llama2-13b",
+          "NousResearch/Nous-Hermes-Llama2-70b",
+          "NousResearch/Nous-Hermes-llama-2-7b",
+          "Open-Orca/Mistral-7B-OpenOrca",
+          "Qwen/Qwen1.5-0.5B-Chat",
+          "Qwen/Qwen1.5-1.8B-Chat",
+          "Qwen/Qwen1.5-110B-Chat",
+          "Qwen/Qwen1.5-14B-Chat",
+          "Qwen/Qwen1.5-32B-Chat",
+          "Qwen/Qwen1.5-4B-Chat",
+          "Qwen/Qwen1.5-72B-Chat",
+          "Qwen/Qwen1.5-7B-Chat",
+          "Qwen/Qwen2-1.5B",
+          "Qwen/Qwen2-1.5B-Instruct",
+          "Qwen/Qwen2-72B",
+          "Qwen/Qwen2-72B-Instruct",
+          "Qwen/Qwen2-7B",
+          "Qwen/Qwen2-7B-Instruct",
+          "Snowflake/snowflake-arctic-instruct",
+          "Undi95/ReMM-SLERP-L2-13B",
+          "Undi95/Toppy-M-7B",
+          "WizardLM/WizardLM-13B-V1.2",
+          "allenai/OLMo-7B-Instruct",
+          "carson/ml31405bit",
+          "carson/ml3170bit",
+          "carson/ml318bit",
+          "carson/ml318br",
+          "codellama/CodeLlama-13b-Instruct-hf",
+          "codellama/CodeLlama-34b-Instruct-hf",
+          "codellama/CodeLlama-70b-Instruct-hf",
+          "codellama/CodeLlama-7b-Instruct-hf",
+          "cognitivecomputations/dolphin-2.5-mixtral-8x7b",
+          "databricks/dbrx-instruct",
+          "deepseek-ai/deepseek-coder-33b-instruct",
+          "deepseek-ai/deepseek-llm-67b-chat",
+          "garage-bAInd/Platypus2-70B-instruct",
+          "google/gemma-2-27b-it",
+          "google/gemma-2-9b-it",
+          "google/gemma-2b-it",
+          "google/gemma-7b-it",
+          "gradientai/Llama-3-70B-Instruct-Gradient-1048k",
+          "lmsys/vicuna-13b-v1.3",
+          "lmsys/vicuna-13b-v1.5",
+          "lmsys/vicuna-13b-v1.5-16k",
+          "lmsys/vicuna-7b-v1.3",
+          "lmsys/vicuna-7b-v1.5",
+          "meta-llama/Llama-2-13b-chat-hf",
+          "meta-llama/Llama-2-70b-chat-hf",
+          "meta-llama/Llama-2-7b-chat-hf",
+          "meta-llama/Llama-3-70b-chat-hf",
+          "meta-llama/Llama-3-8b-chat-hf",
+          "meta-llama/Meta-Llama-3-70B-Instruct",
+          "meta-llama/Meta-Llama-3-70B-Instruct-Lite",
+          "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
+          "meta-llama/Meta-Llama-3-8B-Instruct",
+          "meta-llama/Meta-Llama-3-8B-Instruct-Lite",
+          "meta-llama/Meta-Llama-3-8B-Instruct-Turbo",
+          "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+          "meta-llama/Meta-Llama-3.1-70B-Instruct-Reference",
+          "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+          "meta-llama/Meta-Llama-3.1-70B-Reference",
+          "meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",
+          "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+          "microsoft/WizardLM-2-8x22B",
+          "mistralai/Mistral-7B-Instruct-v0.1",
+          "mistralai/Mistral-7B-Instruct-v0.2",
+          "mistralai/Mistral-7B-Instruct-v0.3",
+          "mistralai/Mixtral-8x22B-Instruct-v0.1",
+          "mistralai/Mixtral-8x7B-Instruct-v0.1",
+          "openchat/openchat-3.5-1210",
+          "snorkelai/Snorkel-Mistral-PairRM-DPO",
+          "teknium/OpenHermes-2-Mistral-7B",
+          "teknium/OpenHermes-2p5-Mistral-7B",
+          "togethercomputer/CodeLlama-13b-Instruct",
+          "togethercomputer/CodeLlama-34b-Instruct",
+          "togethercomputer/CodeLlama-7b-Instruct",
+          "togethercomputer/Koala-13B",
+          "togethercomputer/Koala-7B",
+          "togethercomputer/Llama-2-7B-32K-Instruct",
+          "togethercomputer/Llama-3-8b-chat-hf-int4",
+          "togethercomputer/Llama-3-8b-chat-hf-int8",
+          "togethercomputer/SOLAR-10.7B-Instruct-v1.0-int4",
+          "togethercomputer/StripedHyena-Nous-7B",
+          "togethercomputer/alpaca-7b",
+          "togethercomputer/guanaco-13b",
+          "togethercomputer/guanaco-33b",
+          "togethercomputer/guanaco-65b",
+          "togethercomputer/guanaco-7b",
+          "togethercomputer/llama-2-13b-chat",
+          "togethercomputer/llama-2-70b-chat",
+          "togethercomputer/llama-2-7b-chat",
+          "upstage/SOLAR-10.7B-Instruct-v1.0",
+          "zero-one-ai/Yi-34B-Chat"
+        ]
+        fetch: false # fetching list of models is not supported
+      titleConvo: true
+      titleModel: "togethercomputer/llama-2-7b-chat"
+      summarize: false
+      summaryModel: "togethercomputer/llama-2-7b-chat"
+      forcePrompt: false
+      modelDisplayLabel: "together.ai"
+      
+    # Groq Example
+    - name: 'groq'
+      apiKey: '${GROQ_API_KEY}'
+      baseURL: 'https://api.groq.com/openai/v1/'
+      models:
+        default:
+          [
+            'llama3-70b-8192',
+            'llama3-8b-8192',
+            'llama2-70b-4096',
+            'mixtral-8x7b-32768',
+            'gemma-7b-it',
+          ]
+        fetch: false
+      titleConvo: true
+      titleModel: 'mixtral-8x7b-32768'
+      modelDisplayLabel: 'groq'
+
+    # Mistral AI Example
+    - name: 'Mistral' # Unique name for the endpoint
+      # For `apiKey` and `baseURL`, you can use environment variables that you define.
+      # recommended environment variables:
+      apiKey: '${MISTRAL_API_KEY}'
+      baseURL: 'https://api.mistral.ai/v1'
+
+      # Models configuration
+      models:
+        # List of default models to use. At least one value is required.
+        default: ['mistral-tiny', 'mistral-small', 'mistral-medium']
+        # Fetch option: Set to true to fetch models from API.
+        fetch: true # Defaults to false.
+
+      # Optional configurations
+
+      # Title Conversation setting
+      titleConvo: true # Set to true to enable title conversation
+
+      # Title Method: Choose between "completion" or "functions".
+      # titleMethod: "completion"  # Defaults to "completion" if omitted.
+
+      # Title Model: Specify the model to use for titles.
+      titleModel: 'mistral-tiny' # Defaults to "gpt-3.5-turbo" if omitted.
+
+      # Summarize setting: Set to true to enable summarization.
+      # summarize: false
+
+      # Summary Model: Specify the model to use if summarization is enabled.
+      # summaryModel: "mistral-tiny"  # Defaults to "gpt-3.5-turbo" if omitted.
+
+      # Force Prompt setting: If true, sends a `prompt` parameter instead of `messages`.
+      # forcePrompt: false
+
+      # The label displayed for the AI model in messages.
+      modelDisplayLabel: 'Mistral' # Default is "AI" when not set.
+
+      # Add additional parameters to the request. Default params will be overwritten.
+      # addParams:
+      # safe_prompt: true # This field is specific to Mistral AI: https://docs.mistral.ai/api/
+
+      # Drop Default params parameters from the request. See default params in guide linked below.
+      # NOTE: For Mistral, it is necessary to drop the following parameters or you will encounter a 422 Error:
+      dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+
+    # OpenRouter Example
+    - name: 'OpenRouter'
+      # For `apiKey` and `baseURL`, you can use environment variables that you define.
+      # recommended environment variables:
+      # Known issue: you should not use `OPENROUTER_API_KEY` as it will then override the `openAI` endpoint to use OpenRouter as well.
+      apiKey: '${OPENROUTER_KEY}'
+      baseURL: 'https://openrouter.ai/api/v1'
+      models:
+        default: ['meta-llama/llama-3-70b-instruct']
+        fetch: true
+      titleConvo: true
+      titleModel: 'meta-llama/llama-3-70b-instruct'
+      # Recommended: Drop the stop parameter from the request as Openrouter models use a variety of stop tokens.
+      dropParams: ['stop']
+      modelDisplayLabel: 'OpenRouter'
+# fileConfig:
+#   endpoints:
+#     assistants:
+#       fileLimit: 5
+#       fileSizeLimit: 10  # Maximum size for an individual file in MB
+#       totalSizeLimit: 50  # Maximum total size for all files in a single request in MB
+#       supportedMimeTypes:
+#         - "image/.*"
+#         - "application/pdf"
+#     openAI:
+#       disabled: true  # Disables file uploading to the OpenAI endpoint
+#     default:
+#       totalSizeLimit: 20
+#     YourCustomEndpointName:
+#       fileLimit: 2
+#       fileSizeLimit: 5
+#   serverFileSizeLimit: 100  # Global server file size limit in MB
+#   avatarSizeLimit: 2  # Limit for user avatar image size in MB
+# See the Custom Configuration Guide for more information on Assistants Config:
+# https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/assistants_endpoint
